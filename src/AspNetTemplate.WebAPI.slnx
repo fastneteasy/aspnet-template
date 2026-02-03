@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AspNetTemplate.DAL/AspNetTemplate.DAL.csproj" Id="c8ef7b3f-5cfa-4acb-8bbe-e6eec052894e" />
+  <Project Path="tests/AspNetTemplate.WebAPI.Tests/AspNetTemplate.WebAPI.Tests.csproj" Id="b8d2af39-6351-47c2-a97b-cdbd5ae4ba9a" />
+  <Project Path="AspNetTemplate.Extension/AspNetTemplate.Extension.csproj" Id="a50ebbc9-1164-4dd2-a84d-81615b031bb1" />
+  <Project Path="AspNetTemplate.WebAPI/AspNetTemplate.WebAPI.csproj" />
+</Solution>
