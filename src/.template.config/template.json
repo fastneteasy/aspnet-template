@@ -10,7 +10,7 @@
       "type": "item"
     },
     "symbols": {
-      "ClassName":{
+      "ProjectName":{
         "type": "parameter",
         "description": "AspNetTemplate",
         "datatype": "text",
