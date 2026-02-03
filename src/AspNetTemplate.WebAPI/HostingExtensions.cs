@@ -30,7 +30,7 @@ internal static class HostingExtensions
                 JsonConvert.DefaultSettings = () => { return options.SerializerSettings; };
             });
 
-        builder.Services.AddOpenApi("AspNetTemplate_v1");
+        builder.Services.AddOpenApi();
 
         builder.Services.AddAuthorization();
 
