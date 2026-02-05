@@ -1,7 +1,8 @@
+using AspNetTemplate.DAL.Extensions;
 using AspNetTemplate.WebAPI;
 using AspNetTemplate.WebAPI.Extensions;
-using AspNetTemplate.DAL.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -54,6 +55,14 @@ internal static class HostingExtensions
 
         builder.Services.AddDistributedMemoryCache();
 
+        builder.Services.Configure<ForwardedHeadersOptions>(options =>
+        {
+            options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto | ForwardedHeaders.XForwardedHost | ForwardedHeaders.XForwardedPrefix;
+
+            options.KnownIPNetworks.Clear();
+            options.KnownProxies.Clear();
+        });
+
         builder.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(
@@ -80,6 +89,7 @@ internal static class HostingExtensions
     public static WebApplication ConfigurePipeline(this WebApplication app)
     {
         app.UseMiddleware<ExceptionHandler>();
+        app.UseForwardedHeaders();
         app.UseStaticFiles();
 
         // Configure the HTTP request pipeline.
